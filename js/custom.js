@@ -140,3 +140,33 @@
 
 	
 }(jQuery));
+
+
+ // Modal Video btn-play
+ $(document).ready(function () {
+	var $videoSrc;
+	$('.btn-play').click(function () {
+		$videoSrc = $(this).data("src");
+	});
+	console.log($videoSrc);
+
+	$('#videoModal').on('shown.bs.modal', function (e) {
+		$("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+	})
+
+	$('#videoModal').on('hide.bs.modal', function (e) {
+		$("#video").attr('src', $videoSrc);
+	})
+});
+
+
+
+
+// Selecciona el botón y el reproductor de audio
+const playButton = document.getElementById('playButton');
+const audioPlayer = document.getElementById('audioPlayer');
+
+// Agrega el evento de clic al botón
+playButton.addEventListener('click', () => {
+    audioPlayer.play(); // Reproduce el audio
+});
